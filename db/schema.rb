@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621112422) do
+ActiveRecord::Schema.define(:version => 20130621135053) do
 
   create_table "jobs", :force => true do |t|
     t.string   "company_name"
@@ -36,5 +36,13 @@ ActiveRecord::Schema.define(:version => 20130621112422) do
   end
 
   add_index "resumes", ["name"], :name => "index_resumes_on_name"
+
+  create_table "view_histories", :force => true do |t|
+    t.integer  "resume_id"
+    t.datetime "time_viewed"
+    t.string   "ip"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end

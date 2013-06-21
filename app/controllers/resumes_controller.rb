@@ -15,6 +15,9 @@ class ResumesController < ApplicationController
   def show
     @resume = Resume.find(params[:id])
 
+    vh = ViewHistory.new(time_viewed: Time.now, ip: request.remote_ip, resume_id: @resume.id)
+    vh.save
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @resume }
