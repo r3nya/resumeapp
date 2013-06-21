@@ -26,6 +26,7 @@
     <td><%= resume.zip %></td>
     <td><%= resume.summary %></td>
     <td><%= link_to 'Show', resume %></td>
+    <td><%= link_to 'Viewed', viewed_resume_path(resume) %></td>
     <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
     <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

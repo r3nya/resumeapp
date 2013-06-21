@@ -3,7 +3,11 @@ Resumeapp::Application.routes.draw do
 
   get "job/list"
 
-  resources :resumes
+  resources :resumes do
+    member do
+      get 'viewed'
+    end
+  end
 
 
   # The priority is based upon order of creation:

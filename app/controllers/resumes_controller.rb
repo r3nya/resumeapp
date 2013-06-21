@@ -1,4 +1,10 @@
 class ResumesController < ApplicationController
+
+  def viewed
+    resume = Resume.find(params[:id])
+    @views = resume.view_histories
+  end
+
   # GET /resumes
   # GET /resumes.json
   def index
