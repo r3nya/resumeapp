@@ -1,4 +1,8 @@
 Resumeapp::Application.routes.draw do
+  get "job/add"
+
+  get "job/list"
+
   resources :resumes
 
 
