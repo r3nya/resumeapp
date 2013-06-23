@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621135053) do
+ActiveRecord::Schema.define(:version => 20130623110618) do
+
+  create_table "applications", :force => true do |t|
+    t.integer  "resume_id"
+    t.integer  "employer"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cover_letters", :force => true do |t|
+    t.integer  "resume_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "employers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "employers_resumes", :id => false, :force => true do |t|
+    t.integer "employer_id"
+    t.integer "resume_id"
+  end
 
   create_table "jobs", :force => true do |t|
     t.string   "company_name"
@@ -20,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130621135053) do
     t.datetime "end_date"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "resume_id"
   end
 
   create_table "resumes", :force => true do |t|
